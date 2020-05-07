@@ -10,6 +10,14 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'observables',
+    loadChildren: () => import('./pages/observables/observables.module').then( m => m.ObservablesPageModule)
+  },
+  {
+    path: 'observables-search',
+    loadChildren: () => import('./pages/observables-search/observables-search.module').then( m => m.ObservablesSearchPageModule)
   }
 ];
 

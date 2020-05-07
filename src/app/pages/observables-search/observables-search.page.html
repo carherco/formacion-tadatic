@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>observables-search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3>Búsqueda de usuarios (con observables)</h3>
+
+  <label for="search">Búsqueda por email</label>
+  <input type="text" id="search" [formControl]="searchEmailControl" >
+  
+  <table class="table">
+    <tr *ngFor="let user of users">
+      <td>{{user.name}}</td>
+      <td>{{user?.email}}</td>
+      <td>{{user?.phone}}</td>
+    </tr>
+  </table>
+  
+</ion-content>
