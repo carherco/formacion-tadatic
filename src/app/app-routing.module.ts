@@ -18,6 +18,18 @@ const routes: Routes = [
   {
     path: 'observables-search',
     loadChildren: () => import('./pages/observables-search/observables-search.module').then( m => m.ObservablesSearchPageModule)
+  },
+  {
+    path: 'ejercicio1',
+    loadChildren: () => import('./pages/ejercicio1/ejercicio1.module').then( m => m.Ejercicio1PageModule)
+  },
+  {
+    path: 'ejercicio2',
+    loadChildren: () => import('./pages/ejercicio2/ejercicio2.module').then( m => m.Ejercicio2PageModule)
+  },
+  {
+    path: 'ejercicio3',
+    loadChildren: () => import('./pages/ejercicio3/ejercicio3.module').then( m => m.Ejercicio3PageModule)
   }
 ];
 
