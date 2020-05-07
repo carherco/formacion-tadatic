@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { User } from 'src/app/model/User';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-observables-search',
@@ -12,14 +11,13 @@ import { Observable } from 'rxjs';
 })
 export class ObservablesSearchPage implements OnInit {
 
-  urlApi = 'https://jsonplaceholder.typicode.com/users';
   searchEmailControl: FormControl;
   users: User[] = [];
   errorMessage = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private usersService: UsersService) {
     this.searchEmailControl = new FormControl();
-    this.getUsers().subscribe(
+    this.usersService.getUsers().subscribe(
       users => this.users = users
     );
   }
@@ -28,9 +26,9 @@ export class ObservablesSearchPage implements OnInit {
     this.searchEmailControl.valueChanges
       .subscribe(
         email => {
-          this.getUsers(email).subscribe(
+          this.usersService.getUsersFilteredByEmail(email).subscribe(
             users => this.users = users
-          )
+          );
         }
       );
       // .pipe(
@@ -41,20 +39,12 @@ export class ObservablesSearchPage implements OnInit {
       //  //tap(x => console.log('Después de .debounceTime(500)', x)),
       //  distinctUntilChanged(),
       //  //tap(x => console.log('Después de .distinctUntilChanged()', x)),
-      //  switchMap((email) => this.getUsers(email))
+      //  switchMap((email) => this.getUsersFilteredByEmail(email))
       //  //tap(x => console.log('Después de .switchMap((x) => this.getHeroes(x))', x))
       // )
       // .subscribe(users => {this.users = users; console.log(users)},
       //             error =>  this.errorMessage = error
       // );
-  }
-
-  getUsers(email = ''): Observable<User[]> {
-    let url = this.urlApi;
-    if (email) {
-      url += '?email=' + email;
-    }
-    return this.http.get<User[]>(url);
   }
 
 }
