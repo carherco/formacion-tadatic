@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { filter, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 import { User } from 'src/app/model/User';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -24,6 +24,11 @@ export class ObservablesSearchPage implements OnInit {
 
   ngOnInit() {
     this.searchEmailControl.valueChanges
+      .pipe(
+        debounceTime(500),
+        tap(x => console.log('Elemento original:', x)),
+        filter(email => email.length > 3),
+      )
       .subscribe(
         email => {
           this.usersService.getUsersFilteredByEmail(email).subscribe(
