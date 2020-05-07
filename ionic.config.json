@@ -1,0 +1,7 @@
+{
+  "name": "tadatic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
