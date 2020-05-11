@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { map, take, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ejercicio2',
@@ -10,7 +10,10 @@ import { map, take } from 'rxjs/operators';
 export class Ejercicio2Page implements OnInit {
 
   private inicio = 10;
-  public countdown$ = interval(1000).pipe(
+  public cuenta;
+  private suscripcion;
+
+  public countdown$ = interval(500).pipe(
         // Usa aquí los operadores necesarios
         // para realizar la cuenta atrás comenzando 
         // desde  el valor indicado en this.inicio
@@ -18,12 +21,22 @@ export class Ejercicio2Page implements OnInit {
         // Extra: Que la cuenta atrás se pare en 0
 
         map( item => this.inicio - item),
+        //filter( item => item >= 0)
         take( this.inicio + 1)
   );
 
-  constructor() { }
+  constructor() { 
+
+    this.suscripcion = this.countdown$.subscribe(
+      dato => this.cuenta = dato
+    );
+  }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.suscripcion.unsuscribe();
   }
 
 }

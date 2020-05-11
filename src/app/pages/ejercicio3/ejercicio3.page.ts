@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ejercicio3',
@@ -10,13 +11,21 @@ import { map } from 'rxjs/operators';
 })
 export class Ejercicio3Page implements OnInit {
 
-  usersService$: Observable<any[]>;
-
-  constructor(private usersService: UsersService) { 
-    this.usersService$ = this.usersService.getUsersApi2().pipe( map(response => response.data));
+  users: any[] = [];
+  datosUsers$: Observable<any[]>;
+  constructor(public usersService: UsersService, private http: HttpClient) {
+    //this.getUsers();
   }
 
   ngOnInit() {
+    this.datosUsers$ = this.usersService.getUsersApi2();
+  }
+
+  getUsers() {
+    const url = 'https://reqres.in/api/users';
+    this.http.get<any>(url).subscribe(
+      respuestaServer => this.users = respuestaServer.data
+    );
   }
 
 }

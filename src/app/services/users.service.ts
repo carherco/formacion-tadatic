@@ -26,8 +26,10 @@ export class UsersService {
     return this.http.get<User[]>(url);
   }
 
-  getUsersApi2(): Observable<any> {
+  getUsersApi2(): Observable<any[]> {
     const url = this.urlApi2;
-    return this.http.get<User[]>(url);
+    return this.http.get<any>(url).pipe(
+      (respuestaServer:any) => respuestaServer.data
+    );
   }
 }

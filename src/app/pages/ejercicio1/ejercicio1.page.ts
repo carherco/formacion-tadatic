@@ -25,6 +25,7 @@ export class Ejercicio1Page implements OnInit {
 
       filter( item => typeof item === 'number'),
       reduce( (accum: number, item: number) => accum + item, 0 ),
+
     ).subscribe(
       suma => {
         this.suma = suma;

@@ -6,7 +6,7 @@
 
 <ion-content>
   <table class="table">
-    <tr *ngFor="let user of usersService$|async">
+    <tr *ngFor="let user of users$ | async">
       <td><img [src]=user.avatar/></td>
       <td>{{user.id}}</td>
       <td>{{user.email}}</td>
