@@ -5,5 +5,13 @@
 </ion-header>
 
 <ion-content>
-
+  <table class="table">
+    <tr *ngFor="let user of usersService$|async">
+      <td><img [src]=user.avatar/></td>
+      <td>{{user.id}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.first_name}}</td>
+      <td>{{user.last_name}}</td>
+    </tr>
+  </table>
 </ion-content>

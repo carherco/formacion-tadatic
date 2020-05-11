@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class UsersService {
 
   urlApi = 'https://jsonplaceholder.typicode.com/users';
+  urlApi2 = 'https://reqres.in/api/users';
+
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
@@ -21,6 +23,11 @@ export class UsersService {
     if (email) {
       url += '?email=' + email;
     }
+    return this.http.get<User[]>(url);
+  }
+
+  getUsersApi2(): Observable<any> {
+    const url = this.urlApi2;
     return this.http.get<User[]>(url);
   }
 }
