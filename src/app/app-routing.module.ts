@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'ejercicio4',
     loadChildren: () => import('./pages/ejercicio4/ejercicio4.module').then( m => m.Ejercicio4PageModule)
+  },
+  {
+    path: 'form-reactive',
+    loadChildren: () => import('./pages/form-reactive/form-reactive.module').then( m => m.FormReactivePageModule)
   }
 ];
 

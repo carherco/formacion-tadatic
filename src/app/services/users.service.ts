@@ -26,6 +26,11 @@ export class UsersService {
     return this.http.get<User[]>(url);
   }
 
+  getUser(id): Observable<User> {
+    const url = this.urlApi + '/' + id;
+    return this.http.get<User>(url);
+  }
+
   getUsersApi2(): Observable<any[]> {
     const url = this.urlApi2;
     return this.http.get<any>(url).pipe(
