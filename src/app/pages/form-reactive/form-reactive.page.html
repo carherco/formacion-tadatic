@@ -11,9 +11,11 @@
       <input type="text" id="username" name="username" required formControlName="username">
     </div>
 
-    <div>
+    <div [class.controlInvalido]="emailControl.invalid">
       <label for="email">Email: </label>
       <input type="email" id="email" name="email" email formControlName="email">
+      <br/>
+      <div *ngIf="emailControl.invalid">El email no es válido</div>
     </div>
 
     <h4>Address</h4>
@@ -35,7 +37,7 @@
       </div>
     </div>
 
-    <ion-button (click)="onSubmit()">Submit</ion-button>
+    <ion-button [disabled]="userForm.invalid" (click)="onSubmit()">Submit</ion-button>
 
   </form>
 </div>
