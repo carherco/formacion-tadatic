@@ -61,8 +61,16 @@ export class AppComponent implements OnInit {
     private shoppinCartService: ShoppingCartService
   ) {
     this.initializeApp();
-    this.numItems = this.shoppinCartService.getNumItems();
-    this.total = this.shoppinCartService.getTotal();
+    // this.numItems = this.shoppinCartService.getNumItems();
+    // this.total = this.shoppinCartService.getTotal();
+
+    this.shoppinCartService.getNumItems$().subscribe(
+      nuevoNumero => this.numItems = nuevoNumero
+    );
+
+    this.shoppinCartService.getTotal$().subscribe(
+      nuevoPrecio => this.total = nuevoPrecio
+    );
   }
 
   initializeApp() {
@@ -77,6 +85,7 @@ export class AppComponent implements OnInit {
   }
 
   ngDoCheck() {
-    
+    // this.numItems = this.shoppinCartService.getNumItems();
+    // this.total = this.shoppinCartService.getTotal();
   }
 }

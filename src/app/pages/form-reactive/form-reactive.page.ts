@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/User';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-form-reactive',
@@ -15,9 +16,8 @@ export class FormReactivePage implements OnInit {
   emailControl: FormControl;
   otroControl: FormControl;
 
-  constructor(private fb: FormBuilder, private usersService: UsersService) {
+  constructor(private fb: FormBuilder, private usersService: UsersService, private shoppingCart: ShoppingCartService) {
     this.emailControl = new FormControl('', [Validators.email]);
-
     this.otroControl = new FormControl('', [Validators.email]);
     this.createForm();
     this.usersService.getUser(2).subscribe(
