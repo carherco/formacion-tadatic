@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'catalog',
     pathMatch: 'full'
   },
   {
@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'form-reactive',
     loadChildren: () => import('./pages/form-reactive/form-reactive.module').then( m => m.FormReactivePageModule)
+  },
+  {
+    path: 'catalog',
+    loadChildren: () => import('./pages/catalog/catalog.module').then( m => m.CatalogPageModule)
   }
 ];
 

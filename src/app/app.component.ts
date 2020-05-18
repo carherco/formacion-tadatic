@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { ShoppingCartService } from './services/shopping-cart.service';
+import { Product } from './model/product';
 
 @Component({
   selector: 'app-root',
@@ -41,16 +43,26 @@ export class AppComponent implements OnInit {
       title: 'Formularios Reactivos',
       url: '/form-reactive',
       icon: 'warning'
+    },
+    {
+      title: 'Tienda',
+      url: '/catalog',
+      icon: 'archive'
     }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+
+  numItems: number;
+  total: number;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private shoppinCartService: ShoppingCartService
   ) {
     this.initializeApp();
+    this.numItems = this.shoppinCartService.getNumItems();
+    this.total = this.shoppinCartService.getTotal();
   }
 
   initializeApp() {
@@ -61,9 +73,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    }
+
+  }
+
+  ngDoCheck() {
+    
   }
 }

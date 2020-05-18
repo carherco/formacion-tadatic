@@ -15,12 +15,8 @@
         </ion-list>
 
         <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
+          <ion-list-header>Cart - {{numItems}}</ion-list-header>
+          <ion-label>Total: {{ total }}</ion-label>
         </ion-list>
       </ion-content>
     </ion-menu>
