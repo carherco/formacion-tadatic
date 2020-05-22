@@ -14,7 +14,7 @@
       <label>Password: </label>
       <input name="password" [(ngModel)]="user.password" />
     </div>
-    <ion-button (click)="doLogin()">Entrar</ion-button>
+    <button type="submit" (click)="doLogin()">Entrar</button>
   </form>
   
   <div *ngIf="message">{{ message }}</div>

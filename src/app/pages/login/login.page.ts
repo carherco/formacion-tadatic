@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
+interface UserRegister {
+  username: string;
+  password: string;
+  lastName: string;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,9 +15,10 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  user = {
+  user: UserRegister = {
     username: '',
     password: '',
+    lastName: ''
   };
 
   message: string;
@@ -19,6 +26,9 @@ export class LoginPage implements OnInit {
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
+    // localStorage.setItem('clave', 'valor');
+    // let valorClave = localStorage.getItem('clave');
+    // localStorage.removeItem('clave');
   }
 
   doLogin() {

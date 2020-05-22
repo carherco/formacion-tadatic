@@ -17,6 +17,7 @@ export class AuthService {
   constructor() {}
 
   login(user: UserCredentials): boolean {
+
     if (user.username === 'curso' && user.password === 'ionic') {
       this.username = user.username;
       this.token = 'token_de_sesion';
@@ -27,7 +28,9 @@ export class AuthService {
     }
   }
 
-  logout() {
+  logout(): boolean {
+    this.username = '';
+    this.token = '';
     return true;
   }
 
