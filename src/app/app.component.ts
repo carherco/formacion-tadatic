@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { Product } from './model/product';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -58,11 +59,10 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private shoppinCartService: ShoppingCartService
+    private shoppinCartService: ShoppingCartService,
+    private auth: AuthService
   ) {
     this.initializeApp();
-    // this.numItems = this.shoppinCartService.getNumItems();
-    // this.total = this.shoppinCartService.getTotal();
 
     this.shoppinCartService.getNumItems$().subscribe(
       nuevoNumero => this.numItems = nuevoNumero
@@ -84,8 +84,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  ngDoCheck() {
-    // this.numItems = this.shoppinCartService.getNumItems();
-    // this.total = this.shoppinCartService.getTotal();
+  getUsername(): string {
+    return this.auth.getUsername();
   }
 }

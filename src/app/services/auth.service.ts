@@ -10,14 +10,16 @@ interface UserCredentials {
 })
 export class AuthService {
 
+  private username: string;
+  private token: string;
   private lastLoginErrorMessage: string;
 
   constructor() {}
 
   login(user: UserCredentials): boolean {
-    if (user.username === 'curso' && user.password === 'angular') {
-      localStorage.setItem('username', user.username);
-      localStorage.setItem('token', 'token_simulado');
+    if (user.username === 'curso' && user.password === 'ionic') {
+      this.username = user.username;
+      this.token = 'token_de_sesion';
       return true;
     } else {
       this.lastLoginErrorMessage = 'Credenciales incorrectas';
@@ -26,12 +28,11 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('username');
-    localStorage.removeItem('token');
+    return true;
   }
 
   isLogged(): boolean {
-    if (localStorage.getItem('token')) {
+    if (this.username) {
       return true;
     } else {
       return false;
@@ -39,11 +40,11 @@ export class AuthService {
   }
 
   getUsername(): string {
-    return localStorage.getItem('username');
+    return this.username;
   }
 
   getToken(): string {
-    return localStorage.getItem('token');
+    return this.token;
   }
 
   getLastLoginErrorMessage(): string {
