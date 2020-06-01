@@ -49,6 +49,16 @@ export class AppComponent implements OnInit {
       title: 'Tienda',
       url: '/catalog',
       icon: 'archive'
+    },
+    {
+      title: 'Card',
+      url: '/card',
+      icon: 'archive'
+    },
+    {
+      title: 'Popover',
+      url: '/popover',
+      icon: 'archive'
     }
   ];
 

@@ -43,6 +43,14 @@ const routes: Routes = [
     path: 'catalog',
     loadChildren: () => import('./pages/catalog/catalog.module').then( m => m.CatalogPageModule)
   },
+  {
+    path: 'card',
+    loadChildren: () => import('./pages/card/card.module').then( m => m.CardPageModule)
+  },
+  {
+    path: 'popover',
+    loadChildren: () => import('./pages/popover/popover.module').then( m => m.PopoverPageModule)
+  },
 ];
 
 @NgModule({
