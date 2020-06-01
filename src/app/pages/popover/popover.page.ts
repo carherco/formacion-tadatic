@@ -24,4 +24,20 @@ export class PopoverPage implements OnInit {
     return await popover.present();
   }
 
+  getThumbnail(componente) {
+    console.log('estoy en getThumbnail');
+    let thumb;
+    if (componente.type === 'render') {
+      thumb = 'assets/xxxxxx.gif';
+    } else {
+      if (componente.thumbnail) {
+        thumb = componente.thumbnail;
+      } else {
+        thumb = '../../afasdfasdfsda.gif' ;
+      }
+    }
+
+    return thumb;
+  }
+
 }

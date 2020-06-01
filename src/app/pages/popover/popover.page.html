@@ -6,4 +6,6 @@
 
 <ion-content>
   <ion-button (click)="presentPopover()">Mostrar Popover</ion-button>
+  <img [src]="getThumbnail(componente)"/>
+  <img [src]="componente | thumb"/>
 </ion-content>
