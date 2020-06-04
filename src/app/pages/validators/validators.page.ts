@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { spanishIbanValidator } from 'src/app/validators/SpanishIbanValidator';
+import { spanishIbanValidator } from 'src/app/validators/spanishIbanValidator';
 
 @Component({
   selector: 'app-validators',
