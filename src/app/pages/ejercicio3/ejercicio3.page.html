@@ -5,8 +5,12 @@
 </ion-header>
 
 <ion-content>
+  <pre>
+      - Listado de usuarios con datos de https://reqres.in/api/users
+      - No debes usar la función subscribe(), la suscripción debes realizarla directamente en el HTML con la pipe async  
+  </pre>
   <table class="table">
-    <tr *ngFor="let user of users$ | async">
+    <tr *ngFor="let user of users">
       <td><img [src]=user.avatar/></td>
       <td>{{user.id}}</td>
       <td>{{user.email}}</td>

@@ -51,6 +51,22 @@ const routes: Routes = [
     path: 'popover',
     loadChildren: () => import('./pages/popover/popover.module').then( m => m.PopoverPageModule)
   },
+  {
+    path: 'validators',
+    loadChildren: () => import('./pages/validators/validators.module').then( m => m.ValidatorsPageModule)
+  },
+  {
+    path: 'ejercicio5',
+    loadChildren: () => import('./pages/ejercicio5/ejercicio5.module').then( m => m.Ejercicio5PageModule)
+  },
+  {
+    path: 'ejercicio6',
+    loadChildren: () => import('./pages/ejercicio6/ejercicio6.module').then( m => m.Ejercicio6PageModule)
+  },
+  {
+    path: 'ejercicio7',
+    loadChildren: () => import('./pages/ejercicio7/ejercicio7.module').then( m => m.Ejercicio7PageModule)
+  },
 ];
 
 @NgModule({

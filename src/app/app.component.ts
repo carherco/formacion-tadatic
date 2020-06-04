@@ -26,21 +26,6 @@ export class AppComponent implements OnInit {
       icon: 'paper-plane'
     },
     {
-      title: 'Ejercicio 1',
-      url: '/ejercicio1',
-      icon: 'heart'
-    },
-    {
-      title: 'Ejercicio 2',
-      url: '/ejercicio2',
-      icon: 'archive'
-    },
-    {
-      title: 'Ejercicio 3',
-      url: '/ejercicio3',
-      icon: 'trash'
-    },
-    {
       title: 'Formularios Reactivos',
       url: '/form-reactive',
       icon: 'warning'
@@ -59,7 +44,50 @@ export class AppComponent implements OnInit {
       title: 'Popover',
       url: '/popover',
       icon: 'archive'
+    },
+    {
+      title: 'Validadores',
+      url: '/validators',
+      icon: 'archive'
     }
+  ];
+
+  public ejercicios = [
+    {
+      title: 'Ejercicio 1',
+      url: '/ejercicio1',
+      icon: 'archive'
+    },
+    {
+      title: 'Ejercicio 2',
+      url: '/ejercicio2',
+      icon: 'archive'
+    },
+    {
+      title: 'Ejercicio 3',
+      url: '/ejercicio3',
+      icon: 'archive'
+    },
+    {
+      title: 'Ejercicio 4',
+      url: '/ejercicio4',
+      icon: 'archive'
+    },
+    {
+      title: 'Ejercicio 5',
+      url: '/ejercicio5',
+      icon: 'archive'
+    },
+    {
+      title: 'Ejercicio 6',
+      url: '/ejercicio6',
+      icon: 'archive'
+    },
+    {
+      title: 'Ejercicio 7',
+      url: '/ejercicio7',
+      icon: 'archive'
+    },
   ];
 
   numItems: number;

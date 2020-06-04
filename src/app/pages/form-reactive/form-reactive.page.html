@@ -1,14 +1,14 @@
 <div>
   <h1>User Form</h1>
-  <form [formGroup]="userForm">
+  <form [formGroup]="userForm" *ngIf="user && userForm">
     <div>
       <label for="name">Name: </label>
       <input type="text" id="name" name="name" required formControlName="name">
 
-      Errores: {{ userForm.get('user').errors | json }}
+      <!-- Errores: {{ userForm.get('user').errors | json }}
       Dirty?:  {{ userForm.get('user').dirty }}
       Error Required:  {{ userForm.get('user').errors['required'] }}
-      Error Required:  {{ userForm.get('user').errors.required }}
+      Error Required:  {{ userForm.get('user').errors.required }} -->
 
 
     </div>

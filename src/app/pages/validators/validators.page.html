@@ -1,0 +1,13 @@
+<div>
+  <h1>Validator</h1>
+
+    <div [class.controlInvalido]="ibanControl.invalid">
+      <label for="iban">IBAN: </label>
+      <input type="text" id="iban" name="iban" [formControl]="ibanControl">
+      <br/>
+      <div *ngIf="ibanControl.invalid">El IBAN no es válido</div>
+      <br/>
+      Errores: {{ ibanControl.errors | json }}
+    </div>
+
+</div>
