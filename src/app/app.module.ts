@@ -16,7 +16,7 @@ import { ThumbPipe } from './pipes/thumb.pipe';
   declarations: [
     AppComponent,
     PopoverContentComponent,
-    ThumbPipe
+    ThumbPipe,
   ],
   entryComponents: [PopoverContentComponent],
   imports: [

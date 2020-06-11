@@ -67,6 +67,14 @@ const routes: Routes = [
     path: 'ejercicio7',
     loadChildren: () => import('./pages/ejercicio7/ejercicio7.module').then( m => m.Ejercicio7PageModule)
   },
+  {
+    path: 'indexed-db',
+    loadChildren: () => import('./pages/indexed-db/indexed-db.module').then( m => m.IndexedDBPageModule)
+  },
+  {
+    path: 'arrays',
+    loadChildren: () => import('./pages/arrays/arrays.module').then( m => m.ArraysPageModule)
+  },
 ];
 
 @NgModule({

@@ -49,6 +49,11 @@ export class AppComponent implements OnInit {
       title: 'Validadores',
       url: '/validators',
       icon: 'archive'
+    },
+    {
+      title: 'IndexedDB',
+      url: '/indexed-db',
+      icon: 'archive'
     }
   ];
 

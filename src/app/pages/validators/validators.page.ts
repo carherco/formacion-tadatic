@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { spanishIbanValidator } from 'src/app/validators/spanishIbanValidator';
+import { FormControl, Validators } from '@angular/forms';
+import { spanishIbanValidator, countriesIbanValidator } from 'src/app/validators/spanishIbanValidator';
+
 
 @Component({
   selector: 'app-validators',
@@ -9,7 +10,8 @@ import { spanishIbanValidator } from 'src/app/validators/spanishIbanValidator';
 })
 export class ValidatorsPage implements OnInit {
 
-  ibanControl: FormControl = new FormControl('', spanishIbanValidator());
+  ibanControl: FormControl = new FormControl('', [Validators.required, countriesIbanValidator( ['ES', 'FR', 'PO'] )]);
+  otroIbanControl: FormControl = new FormControl('', [Validators.required, countriesIbanValidator( ['US', 'EN'] )]);
 
   constructor() { }
 
