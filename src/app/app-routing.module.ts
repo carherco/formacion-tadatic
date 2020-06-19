@@ -75,6 +75,10 @@ const routes: Routes = [
     path: 'arrays',
     loadChildren: () => import('./pages/arrays/arrays.module').then( m => m.ArraysPageModule)
   },
+  {
+    path: 'edit-profile',
+    loadChildren: () => import('./pages/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+  },
 ];
 
 @NgModule({

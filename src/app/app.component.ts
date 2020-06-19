@@ -54,6 +54,11 @@ export class AppComponent implements OnInit {
       title: 'IndexedDB',
       url: '/indexed-db',
       icon: 'archive'
+    },
+    {
+      title: 'Profile',
+      url: '/edit-profile',
+      icon: 'archive'
     }
   ];
 

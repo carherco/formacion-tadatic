@@ -18,14 +18,14 @@ export class AuthService {
 
   login(user: UserCredentials): boolean {
 
-    if (user.username === 'curso' && user.password === 'ionic') {
+    // if (user.username === 'curso' && user.password === 'ionic') {
       this.username = user.username;
       this.token = 'token_de_sesion';
       return true;
-    } else {
-      this.lastLoginErrorMessage = 'Credenciales incorrectas';
-      return false;
-    }
+    // } else {
+    //   this.lastLoginErrorMessage = 'Credenciales incorrectas';
+    //   return false;
+    // }
   }
 
   logout(): boolean {
@@ -44,6 +44,10 @@ export class AuthService {
 
   getUsername(): string {
     return this.username;
+  }
+
+  setUsername(username: string): void {
+    this.username = username;
   }
 
   getToken(): string {
