@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>workspace</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h2>Búsqueda de información navegando a través de las claves/índices de la estructura</h2>
+  <p>Name de la 2a layer de la Conf. del usuario: {{ confUsuarioLayer2Name }}</p>
+  <p>Name de la 5a layer de la Conf. del usuario: {{ confUsuarioLayer5Name }}</p>
+  <p>Description de la 2a layer de la Conf. del usuario: {{ confUsuarioLayer2Description }}</p>
+  <p>Valor de selectable de la 2a layer de la Conf. del usuario: {{ confUsuarioLayer2Selectable }}</p>
+  <p>Valor de show de la 2a layer de la Conf. del usuario: {{ confUsuarioLayer2Show }}</p>
+  <p>Número de fields de la 2a layer de la Conf. del usuario: {{ confUsuarioLayer2NumFields }}</p>
+  <br/>
+
+  <p>Búsqueda dinámica. Elige el número de capa y el valor de la propiedad. Siempre busca en Conf. del usuario.</p>
+  <div><label>Capa</label><input type="number" [(ngModel)]="layer" /></div>
+  <div><label>Propiedad</label><input type="text" [(ngModel)]="name" /></div>
+  <div><button (click)="mostrar()">Mostrar</button></div>
+  <p>El valor que buscas es: {{ value }}</p>
+
+  <h2>Búsqueda de información con find</h2>
+  <p>Description de la layer cuyo name es "Portales" (seguimos en la Conf. del usuario): {{ descriptionOfLayerWhoseNameIsPortales }}</p>
+  <p>AYUDA: Hazlo en 2 pasos, 
+  <ol>
+    <li>Guarda el array de layers en una variable temporal.</li>
+    <li>Recorre el array con find() para encontrar la capa que buscas y guardala en otra variable temporal.</li>
+    <li>Coge la propiedad description de esa capa encontrada.</li>
+  </ol>
+  <div><button (click)="find()">Encontrar</button></div>
+  <p>EJERCICIO: Pon un input para poder escribir el valor del name.</p>
+
+
+  <h2>Búsqueda de información con filter</h2>
+  <p>Encuentra todas las layers cuyo type sea VECTOR y cuyo id sea menor de 30</p>
+  <p>Sácalas por console.log</p>
+  <div><button (click)="filter()">Encontrar</button></div>
+
+
+  <h2>Transformación de datos con map</h2>
+  <p>De la lista de layers anterior (todas las layers cuyo type sea VECTOR y cuyo id sea menor de 30), obtén un listado 
+    de objetos con estas propiedades: id, type, name, numFileds. La propiedad numFields será el número de fields que tenga cada layer. La propiedad name será el alias de la layer.
+  </p>
+  <p>Sácalas por console.log</p>
+  <div><button (click)="map()">Encontrar</button></div>
+  
+</ion-content>

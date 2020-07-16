@@ -16,6 +16,11 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
+      title: 'Workspace',
+      url: '/workspace',
+      icon: 'archive'
+    },
+    {
       title: 'Observables',
       url: '/observables',
       icon: 'mail'
@@ -59,7 +64,7 @@ export class AppComponent implements OnInit {
       title: 'Profile',
       url: '/edit-profile',
       icon: 'archive'
-    }
+    },
   ];
 
   public ejercicios = [

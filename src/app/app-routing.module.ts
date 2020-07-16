@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'workspace',
     pathMatch: 'full'
   },
   {
@@ -78,6 +78,10 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     loadChildren: () => import('./pages/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+  },
+  {
+    path: 'workspace',
+    loadChildren: () => import('./pages/workspace/workspace.module').then( m => m.WorkspacePageModule)
   },
 ];
 

@@ -9,13 +9,13 @@ import { filter, reduce } from 'rxjs/operators';
 })
 export class Ejercicio1Page implements OnInit {
 
-  private datos = [1, 12, 'foo', 8, 5, 2, 'bar', 7, 18];
-  suma: any;
+  data$ = from([1, 12, 'foo', 8, 5, 2, 'bar', 7, 18]);
+  suma: number;
 
   constructor() { }
 
   ngOnInit() {
-    from(this.datos).pipe(
+    this.data$.pipe(
       // Mediante operadores, calcula la suma
       // total de los valores numéricos
 
