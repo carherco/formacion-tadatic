@@ -25,8 +25,8 @@ export class WorkspacePage implements OnInit {
 
   constructor(private workspaceService: WorkspaceService) { 
     this.workspaceService.getMockData().subscribe(
-      data => {
-        this.workspaceData = data;
+      datoEmitidoPorElObservable => {
+        this.workspaceData = datoEmitidoPorElObservable;
         this.processData();
       }
     );
@@ -38,9 +38,9 @@ export class WorkspacePage implements OnInit {
   processData() {
     console.log(this.workspaceData);
 
-    // this.confUsuarioLayer2Name = ;
-    // this.confUsuarioLayer5Name = ;
-    // this.confUsuarioLayer2Description = ;
+    this.confUsuarioLayer2Name = this.workspaceData.data[0].layers[2].name;
+    this.confUsuarioLayer5Name = this.workspaceData.data[0].layers[5].name;
+    this.confUsuarioLayer2Description = this.workspaceData.data[0].layers[2].description;
     // this.confUsuarioLayer2Selectable = ;
     // this.confUsuarioLayer2Show = ;
     // this.confUsuarioLayer2NumFields = ;
@@ -50,22 +50,57 @@ export class WorkspacePage implements OnInit {
     const layer = this.layer;
     const name = this.name;
 
-    // this.value = ;
+    //           this.workspaceData.data[0].layers[2].name;
+
+    const layerElegida = this.workspaceData.data[0].layers[layer];
+    if (layerElegida) {
+      this.value = layerElegida[name];
+    } else {
+      this.value = 'No existe la capa ' + layer;
+    }
+
   }
 
   find() {
-    // this.descriptionOfLayerWhoseNameIsPortales = ;
+    const layers = this.workspaceData.data[0].layers;
+    const layerWithNamePortales: ILayer = layers.find( layer => layer.name === 'Portales' );
+    this.descriptionOfLayerWhoseNameIsPortales = layerWithNamePortales.description;
+
     console.log(this.descriptionOfLayerWhoseNameIsPortales);
   }
 
   filter() {
-    // const layersConTypeVectorYConIdMenorDe30 = ;
-    // console.log(layersConTypeVectorYConIdMenorDe30);
+    const layers = this.workspaceData.data[0].layers;
+    const layersConTypeVectorYConIdMenorDe30 = layers.filter( layer => layer.type === 'VECTOR' && layer.id < 30);
+    console.log(layersConTypeVectorYConIdMenorDe30);
+
+    // const layersConTypeVectorYConIdMenorDe30: ILayer[] = layers.filter( layer => layer.type === 'VECTOR').filter( layer => layer.id < 30);
   }
 
   map() {
-    // const layersWithNumFields = ;
-    // console.log(layersWithNumFields);
+    const layers = this.workspaceData.data[0].layers;
+    const layersAnterior = layers.filter( layer => layer.type === 'VECTOR' && layer.id < 30);
+    
+    const layersWithNumFields = layersAnterior.map( layer => {
+      //console.log(layer.id);
+      const objeto = {
+        id: layer.id,
+        type: layer.type,
+        name: layer.alias,
+        numFileds: layer.fields.length
+      };
+      return objeto;
+    } );
+
+    console.log(layersWithNumFields);
+
+    // {
+    //   id: id de la layer
+    //   type: type de la layer
+    //   name: el alias de la layer
+    //   numFields: número de fields
+    // }
+
   }
 
 }
